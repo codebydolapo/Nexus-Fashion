@@ -15,7 +15,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "LSApplicationQueriesSchemes": [
+          "metamask",
+          "rainbow",
+          "safe",
+          "trust",
+          "uniswap"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
