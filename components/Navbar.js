@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Alert } from 'react-native'
 import React, { useLayoutEffect, useEffect } from 'react'
 import { Image } from 'react-native';
 import { ChevronDownIcon, UserIcon, UserCircleIcon, TrashIcon } from "react-native-heroicons/outline"
@@ -35,13 +35,16 @@ const Navbar = () => {
     const { switchNetwork } = useSwitchNetwork()
 
     function connect() {
-        
-        if (address && isConnected) {
-            dispatch(setAddress(""))
-            return provider.disconnect()
-        } else
-            open()
-        // switchNetwork?.(sepolia.id)
+        try {
+            if (address && isConnected) {
+                dispatch(setAddress(""))
+                return provider.disconnect()
+            } else
+                open()
+            // switchNetwork?.(sepolia.id)
+        } catch (e) {
+            console.log(e)
+        }
     }
 
 
